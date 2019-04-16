@@ -25,7 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://agile-eyrie-76342.herokuapp.com/parse"
             })
         )
-        
+        if PFUser.current() != nil {
+            let main = UIStoryboard(name: "Main", bundle: nil)
+            let NavigationViewController = main.instantiateViewController(withIdentifier: "NavigationViewController")
+            window?.rootViewController = NavigationViewController
+        }
         return true
     }
 
